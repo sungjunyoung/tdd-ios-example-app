@@ -15,12 +15,27 @@ final class StocksViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        do {
+            Store.shared.dbFileName = "test.db.sqlite3"
+            Store.shared.connectDb()
+            try Store.shared.createTables()
+        } catch{
+            
+        }
+        
         vc = StocksViewController()
         let _ = vc.view
     }
     
     override func tearDown() {
         super.tearDown()
+        do {
+            try Store.shared.dropTables()
+        }catch {
+            
+        }
+
     }
     
     func testStocksViewControllerInit() {
