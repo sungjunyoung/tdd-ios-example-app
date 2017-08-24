@@ -19,3 +19,5 @@ xcuserdata
 
 Carthage/Builds
 Carthage/Checkouts
+
+.DS_Store
